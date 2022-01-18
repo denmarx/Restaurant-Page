@@ -1,57 +1,3 @@
-function createHeader() {
-  const header = document.createElement('header');
-  return header;
-}
-
-function createNavbar() {
-  const nav = document.createElement('nav');
-  nav.setAttribute('id', 'navbar');
-
-  const navContainer = document.createElement('div');
-  navContainer.classList.add('container');
-
-  const ul = document.createElement('ul');
-
-  const homeList = document.createElement('li');
-  const aboutList = document.createElement('li');
-  const contactList = document.createElement('li');
-
-  const homeLink = document.createElement('a');
-  homeLink.classList.add('current');
-  homeLink.setAttribute('href', 'index.html');
-  homeLink.textContent = 'Home';
-
-  const aboutLink = document.createElement('a');
-  aboutLink.setAttribute('href', 'about.html');
-  aboutLink.textContent = 'About';
-
-  const contactLink = document.createElement('a');
-  contactLink.setAttribute('href', 'contact.html');
-  contactLink.textContent = 'Contact';
-
-  homeList.appendChild(homeLink);
-  aboutList.appendChild(aboutLink);
-  contactList.appendChild(contactLink);
-
-  ul.appendChild(homeList);
-  ul.appendChild(aboutList);
-  ul.appendChild(contactList);
-
-  navContainer.appendChild(ul);
-
-  const logoHeading = document.createElement('h1');
-  const logoLink = document.createElement('a');
-  logoLink.setAttribute('href', 'index.html');
-  logoLink.textContent = 'HBT';
-
-  logoHeading.appendChild(logoLink);
-  navContainer.appendChild(logoHeading);
-
-  nav.appendChild(navContainer);
-
-  return nav;
-}
-
 function createShowcase() {
   const scDiv = document.createElement('div');
   scDiv.setAttribute('id', 'showcase');
@@ -182,30 +128,13 @@ function createFeatures() {
   return featuresSection;
 }
 
-function createClear() {
-  const clearDiv = document.createElement('div');
-  clearDiv.classList.add('clr');
-
-  return clearDiv;
-}
-
-function createFooter() {
-  const footer = document.createElement('div');
-  footer.setAttribute('id', 'main-footer');
-
-  return footer;
-}
-
-function loadPage() {
+function loadHome() {
   const content = document.querySelector('#content');
-  const header = createHeader();
-  const navbar = createNavbar();
+
   const showcase = createShowcase();
   const home = createHomeInfo();
   const features = createFeatures();
-  const clr = createClear();
-  const footer = createFooter();
-  header.append(navbar, showcase);
-  content.append(header, home, features, clr, footer);
+
+  content.append(showcase, home, features);
 }
-export default loadPage;
+export default loadHome;
