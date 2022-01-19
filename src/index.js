@@ -1,4 +1,4 @@
-import loadInit from './modules/initalPage';
+import loadInit from './modules/loadInit';
 import loadHome from './modules/loadHome';
 import loadAbout from './modules/about';
 

@@ -17,7 +17,7 @@ function createNavbar() {
   const contactList = document.createElement('li');
 
   const homeLink = document.createElement('a');
-  homeLink.classList.add('current');
+  // homeLink.classList.add('current');
   homeLink.setAttribute('id', 'home');
   homeLink.textContent = 'Home';
 
@@ -52,28 +52,14 @@ function createNavbar() {
   return nav;
 }
 
-function createClear() {
-  const clearDiv = document.createElement('div');
-  clearDiv.classList.add('clr');
-
-  return clearDiv;
-}
-
-function createFooter() {
-  const footer = document.createElement('div');
-  footer.setAttribute('id', 'main-footer');
-
-  return footer;
-}
-
 function loadInit() {
   const content = document.querySelector('#content');
+  // const tabContent = document.createElement('div');
+  // tabContent.setAttribute('id', 'tab-content');
   const header = createHeader();
   const navbar = createNavbar();
-  const clr = createClear();
-  const footer = createFooter();
   header.appendChild(navbar);
-  content.append(header, clr, footer);
+  content.appendChild(header);
 }
 
 export default loadInit;

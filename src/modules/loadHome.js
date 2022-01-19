@@ -128,13 +128,35 @@ function createFeatures() {
   return featuresSection;
 }
 
+function createClear() {
+  const clearDiv = document.createElement('div');
+  clearDiv.classList.add('clr');
+
+  return clearDiv;
+}
+
+function createFooter() {
+  const footer = document.createElement('div');
+  footer.setAttribute('id', 'main-footer');
+  const footerParagraph = document.createElement('p');
+  footerParagraph.textContent = 'Restaurant BT';
+  footer.appendChild(footerParagraph);
+
+  return footer;
+}
+
 function loadHome() {
   const content = document.querySelector('#content');
+  const tabContent = document.querySelector('#tab-content');
+  tabContent.textContent = '';
 
   const showcase = createShowcase();
   const home = createHomeInfo();
   const features = createFeatures();
+  const clr = createClear();
+  const footer = createFooter();
 
-  content.append(showcase, home, features);
+  tabContent.append(showcase, home, features, clr, footer);
+  content.appendChild(tabContent);
 }
 export default loadHome;

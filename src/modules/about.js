@@ -23,7 +23,7 @@ function createAboutInfo() {
   wrapDivRight.classList.add('info-right');
 
   const infoImg = document.createElement('img');
-  infoImg.setAttribute('src', './img/photo-2.jpg');
+  infoImg.setAttribute('src', '../src/img/photo-2.jpg');
 
   wrapDivRight.appendChild(infoImg);
   infoLeft.appendChild(wrapDivRight);
@@ -43,6 +43,7 @@ function createClear() {
 // Test
 function createTestimonials() {
   const testimonialSection = document.createElement('section');
+  testimonialSection.setAttribute('id', 'testimonials');
   testimonialSection.classList.add('py-3');
 
   const wrapDiv = document.createElement('div');
@@ -54,29 +55,58 @@ function createTestimonials() {
 
   const imgWrapper = document.createElement('div');
   // Test
-  imgWrapper.classList.add('testimonial', 'bg-primary');
+  imgWrapper.classList.add('testimonial');
+  imgWrapper.classList.add('bg-primary');
 
   const personImg = document.createElement('img');
-  personImg.setAttribute('src', './img/person-1.jpg');
+  personImg.setAttribute('src', '../src/img/person-1.jpg');
 
   const someParagraph = document.createElement('p');
   someParagraph.textContent =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio atque pariatur assumenda vitae dolor rem quia, odit quam facilis. Illo quia eius reprehenderit non cum officiis minima voluptates aliquid minus dolore vel id, atque quis repellendus sed in error sunt.';
 
+  const wrapDivRight = document.createElement('div');
+  wrapDivRight.classList.add('testimonial');
+  wrapDivRight.classList.add('bg-primary');
+
+  const rightPersonImg = document.createElement('img');
+  rightPersonImg.setAttribute('src', '../src/img/person-2.jpg');
+
+  const rightParagraph = document.createElement('p');
+  rightParagraph.textContent =
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio atque pariatur assumenda vitae dolor rem quia, odit quam facilis. Illo quia eius reprehenderit non cum officiis minima voluptates aliquid minus dolore vel id, atque quis repellendus sed in error sunt.';
+
   imgWrapper.append(someParagraph, personImg);
-  wrapDiv.append(imgWrapper, testimonialHeading);
+  wrapDivRight.append(rightPersonImg, rightParagraph);
+  wrapDiv.append(imgWrapper, testimonialHeading, wrapDivRight);
+
   testimonialSection.appendChild(wrapDiv);
 
   return testimonialSection;
 }
 
+function createFooter() {
+  const footer = document.createElement('div');
+  footer.setAttribute('id', 'main-footer');
+  const footerParagraph = document.createElement('p');
+  footerParagraph.textContent = 'Restaurant BT';
+  footer.appendChild(footerParagraph);
+
+  return footer;
+}
+
 function loadAbout() {
   const content = document.querySelector('#content');
+  const tabContent = document.querySelector('#tab-content');
+  tabContent.textContent = '';
+
   const about = createAboutInfo();
   const clr = createClear();
   const leftTestimonial = createTestimonials();
-  content.textContent = '';
-  content.append(about, clr, leftTestimonial);
+  const footer = createFooter();
+
+  tabContent.append(about, leftTestimonial, clr, footer);
+  content.appendChild(tabContent);
 }
 
 export default loadAbout;
